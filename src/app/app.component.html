@@ -1,8 +1,15 @@
-<!-- -->
+<!-- app.component.html -->
+<div class="container">
+  <h2>User List</h2>
+  <div *ngFor="let user of userList" class="user-card">
+    <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+    <p>ID: {{ user.id }}</p>
+    <p>country: {{ user.country }}</p>
+    <p>age: {{ user.age}}</p>
+    <p *ngIf="user.age > 18">This user is an adult.</p>
+    <p *ngIf="user.age < 18">This user is underage.</p>
 
 
-<div>
 
-  <h1>Angular page new project</h1>
-  <h2> created by {{name}}. my age is  {{age}}</h2>
+  </div>
 </div>
