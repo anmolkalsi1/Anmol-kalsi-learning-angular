@@ -11,6 +11,7 @@ import {ContentListItemComponent} from "./content-list-item/content-list-item.co
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
   title = 'anmol-kalsi-Learning-Angular';
   name : string = 'anmol kalsi';
   age : number = 20;

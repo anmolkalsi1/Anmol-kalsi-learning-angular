@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import {Restaurants} from "../restaurants";
 
 @Component({
   selector: 'app-content-list-item',
@@ -8,5 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./content-list-item.component.css']  // Correct the typo (styleUrls)
 })
 export class ContentListItemComponent {
-  @Input() contentItem: any;
+  @Input() restaurants!: Restaurants;
 }
