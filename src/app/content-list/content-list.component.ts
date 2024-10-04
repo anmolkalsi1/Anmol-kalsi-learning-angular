@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';  // Import OnInit
 import { ContentListItemComponent } from '../content-list-item/content-list-item.component';
-import {NgClass, NgForOf} from "@angular/common";
-import {Restaurants} from "../restaurants";
-import {MOCK_RESTAURANTS} from "../Data/mock-content";
+import { NgClass, NgForOf } from "@angular/common";
+import { Restaurants } from "../restaurants";
+import { RestaurantService } from "../services/restaurant.service";  // Import the service
 
 @Component({
   selector: 'app-content-list',
@@ -11,7 +11,14 @@ import {MOCK_RESTAURANTS} from "../Data/mock-content";
   templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.css']
 })
+export class ContentListComponent implements OnInit {
+  contentItems: Restaurants[] = [];
 
-export class ContentListComponent {
-  contentItems: Restaurants[] = MOCK_RESTAURANTS;
+  constructor(private restaurantService: RestaurantService) {}
+
+  ngOnInit(): void {
+    this.restaurantService.getRestaurants().subscribe(data => {
+      this.contentItems = data;  // Assign the fetched data to contentItems
+    });
+  }
 }
