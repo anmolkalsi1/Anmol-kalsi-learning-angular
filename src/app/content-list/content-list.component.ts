@@ -16,9 +16,12 @@ export class ContentListComponent implements OnInit {
 
   constructor(private restaurantService: RestaurantService) {}
 
+
   ngOnInit(): void {
-    this.restaurantService.getRestaurants().subscribe(data => {
-      this.contentItems = data;  // Assign the fetched data to contentItems
+    this.restaurantService.getRestaurants().subscribe({
+      next: (data: Restaurants[]) =>this.contentItems = data,
+      error:err => console.error("Error fetching restaurant", err),
+      complete:() => console.log("restaurant data fetch complete!")
     });
   }
 }

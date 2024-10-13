@@ -1,50 +1,40 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { MOCK_RESTAURANTS } from '../Data/mock-content';
 import { Restaurants } from '../restaurants';
-import { MOCK_RESTAURANTS} from "../Data/mock-content";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RestaurantService {
-
-  private restaurants = MOCK_RESTAURANTS;
-
-  constructor() { }
-
-  // Get the list of all restaurants
   getRestaurants(): Observable<Restaurants[]> {
-    return of(this.restaurants);  // Return an observable of the array
+    return of(MOCK_RESTAURANTS);
   }
 
-  // Get a restaurant by ID
   getRestaurantById(id: number): Observable<Restaurants | undefined> {
-    const restaurant = this.restaurants.find(item => item.id === id);
+    const restaurant = MOCK_RESTAURANTS.find(item => item.id === id);
     return of(restaurant);
   }
 
-  // Add a new restaurant
-  addRestaurant(newRestaurant: Restaurants): Observable<Restaurants[]> {
-    this.restaurants.push(newRestaurant);
-    return of(this.restaurants);  // Return the updated array
+  addRestaurant(restaurant: Restaurants): Observable<Restaurants[]> {
+    MOCK_RESTAURANTS.push(restaurant);
+    return of(MOCK_RESTAURANTS);
   }
 
-  // Update an existing restaurant
   updateRestaurant(updatedRestaurant: Restaurants): Observable<Restaurants[]> {
-    const index = this.restaurants.findIndex(item => item.id === updatedRestaurant.id);
+    const index = MOCK_RESTAURANTS.findIndex(item => item.id === updatedRestaurant.id);
     if (index !== -1) {
-      this.restaurants[index] = updatedRestaurant;
+      MOCK_RESTAURANTS[index] = updatedRestaurant;
     }
-    return of(this.restaurants);  // Return the updated array
+    return of(MOCK_RESTAURANTS);
   }
 
-  // Delete a restaurant by ID
-  deleteRestaurant(id: number): Observable<Restaurants | undefined> {
-    const index = this.restaurants.findIndex(item => item.id === id);
-    let deletedItem;
+  removeRestaurant(id: number): Observable<Restaurants | undefined> {
+    const index = MOCK_RESTAURANTS.findIndex(item => item.id === id);
     if (index !== -1) {
-      deletedItem = this.restaurants.splice(index, 1)[0];  // Remove and return the deleted item
+      const [removedRestaurant] = MOCK_RESTAURANTS.splice(index, 1);
+      return of(removedRestaurant);
     }
-    return of(deletedItem);
+    return of(undefined);
   }
 }
