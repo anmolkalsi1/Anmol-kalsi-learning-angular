@@ -3,4 +3,5 @@ export interface Restaurants{
   type : string;
   yearReleased : number;
   Company : string;
+  imageURL?: string;
 }

@@ -1,8 +1,10 @@
-import { Routes } from '@angular/router';
+import {provideRouter, Routes} from '@angular/router';
+import { bootstrapApplication} from "@angular/platform-browser";
 import { ContentListComponent} from "./app/content-list/content-list.component";
 import { ContentListItemComponent} from "./app/content-list-item/content-list-item.component";
 import { ModifyRestaurantComponent} from "./app/modify-restaurant/modify-restaurant.component";
 import { PageNotFoundComponent} from "./app/page-not-found/page-not-found.component";
+import {AppComponent} from "./app/app.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/restaurants', pathMatch: 'full' },
@@ -11,3 +13,10 @@ export const routes: Routes = [
   { path: 'modify-restaurant', component: ModifyRestaurantComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes)
+  ]
+})
+.catch((err) => console.error(err));

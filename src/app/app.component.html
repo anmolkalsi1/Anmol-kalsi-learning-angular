@@ -1,5 +1,6 @@
-<nav>
-  <a routerLink="/">Home</a> |
-  <a routerLink="/modify-list">Modify List</a>
-</nav>
-<router-outlet></router-outlet>
+<div>
+  <app-navbar></app-navbar>
+  <h1> Restaurant collection</h1>
+  <app-content-list-item [restaurants]="RestaurantItems"></app-content-list-item>
+  <app-content-list></app-content-list>
+</div>

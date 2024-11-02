@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';  // Import OnInit
 import { ContentListItemComponent } from '../content-list-item/content-list-item.component';
-import { NgClass, NgForOf } from "@angular/common";
+import { NgClass, NgForOf, NgStyle } from "@angular/common";
 import { Restaurants } from "../restaurants";
 import { RestaurantService } from "../services/restaurant.service";  // Import the service
 
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [ContentListItemComponent, NgClass, NgForOf],
+  imports: [ContentListItemComponent, NgClass, NgForOf, NgStyle],
   templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.css']
 })
