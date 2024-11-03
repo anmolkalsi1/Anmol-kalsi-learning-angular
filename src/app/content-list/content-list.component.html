@@ -1,4 +1,8 @@
 <div *ngFor="let item of contentItems; let i = index"
      [ngClass]="{ 'even': i % 2 === 0, 'odd': i % 2 !== 0 }">
+
   <app-content-list-item [restaurants]="item"></app-content-list-item>
+
+  <button (click)="editRestaurant(item.id)">Edit</button>
+  <button (click)="deleteRestaurant(item.id)">Delete</button>
 </div>
