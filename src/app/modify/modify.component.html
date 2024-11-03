@@ -1,0 +1,16 @@
+<form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name">
+    <div *ngIf="restaurantForm.get('name')?.invalid && restaurantForm.get('name')?.touched">
+      Name is required and should not contain special characters.
+    </div>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <input id="description" formControlName="description">
+  </div>
+  <input type="hidden" formControlName="id">
+  <button type="submit">Save</button>
+  <button type="button" (click)="router.navigate(['/list'])">Cancel</button>
+</form>
