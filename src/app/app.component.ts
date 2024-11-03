@@ -14,7 +14,6 @@ import { RestaurantService } from "./services/restaurant.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'anmol-kalsi-Learning-Angular';  // Define title here
   RestaurantItems: any;
 
   constructor(private restaurantItemsService: RestaurantService) { }

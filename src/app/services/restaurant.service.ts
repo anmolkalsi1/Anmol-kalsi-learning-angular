@@ -1,3 +1,4 @@
+// restaurant.service.ts
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { MOCK_RESTAURANTS } from '../Data/mock-content';
@@ -17,6 +18,9 @@ export class RestaurantService {
   }
 
   addRestaurant(restaurant: Restaurants): Observable<Restaurants[]> {
+    if (MOCK_RESTAURANTS.find(item => item.id === restaurant.id)) {
+      throw new Error('ID must be unique');
+    }
     MOCK_RESTAURANTS.push(restaurant);
     return of(MOCK_RESTAURANTS);
   }
