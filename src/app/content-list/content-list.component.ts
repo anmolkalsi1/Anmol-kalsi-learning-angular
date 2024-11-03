@@ -3,7 +3,7 @@ import {Component, OnInit} from "@angular/core";
 import {ContentListItemComponent} from "../content-list-item/content-list-item.component";
 import {NgClass, NgForOf, NgStyle} from "@angular/common";
 import {Restaurants} from "../restaurants";
-import {RestaurantService} from "../services/restaurant.service";  // Import Router
+import {RestaurantService} from "../services/restaurant.service";
 
 @Component({
   selector: 'app-content-list',

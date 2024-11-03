@@ -21,8 +21,8 @@ export class ModifyComponent implements OnInit {
 
   ngOnInit() {
     this.restaurantForm = this.fb.group({
-      id: ['', [Validators.required, Validators.min(1)]], // Validation for positive ID
-      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9 ]+$')]], // No special characters in name
+      id: ['', [Validators.required, Validators.min(1)]],
+      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9 ]+$')]],
       description: ['', Validators.required]
     });
   }
