@@ -1,11 +1,14 @@
 import { Component, Input,OnInit } from '@angular/core';
 import {Restaurants} from "../restaurants";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @Component({
   selector: 'app-content-list-item',
   standalone: true,
-  imports: [],
+  imports: [
+    MatButtonModule
+  ],
   templateUrl: './content-list-item.component.html',
   styleUrls: ['./content-list-item.component.css']
 })
