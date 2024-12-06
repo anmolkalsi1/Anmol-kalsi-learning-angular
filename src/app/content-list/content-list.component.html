@@ -1,5 +1,12 @@
 <div *ngFor="let item of contentItems; let i = index">
-  <div>{{ item.type }} - {{ item.yearReleased }}</div>
-  <button (click)="editRestaurant(item.id)">Edit</button>
-  <button (click)="deleteRestaurant(item.id)">Delete</button>
+  <mat-card class="mat-elevation-z4">
+    <mat-card-header>
+      <mat-card-title>{{ item.type }}</mat-card-title>
+      <mat-card-subtitle>Year Released: {{ item.yearReleased }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-raised-button color="accent" (click)="editRestaurant(item.id)">Edit</button>
+      <button mat-raised-button color="warn" (click)="deleteRestaurant(item.id)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

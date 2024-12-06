@@ -1,6 +1,6 @@
-<div>
-  <app-navbar></app-navbar>
-  <h1> Restaurant collection</h1>
-  <app-content-list-item [restaurants]="RestaurantItems"></app-content-list-item>
-  <app-content-list></app-content-list>
-</div>
+<mat-toolbar color="primary">
+  <span>My Toolbar</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/home">Home</button>
+  <button mat-button routerLink="/modifylistitem">Modify List Item</button>
+</mat-toolbar>

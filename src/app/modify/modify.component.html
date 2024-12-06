@@ -1,35 +1,30 @@
 <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
   <!-- Name Field -->
-  <div class="form-group">
-    <label for="name">Name:</label>
-    <input id="name" formControlName="name" class="form-control" />
-    <div *ngIf="restaurantForm.get('name')?.invalid && restaurantForm.get('name')?.touched" class="error-message">
+  <mat-form-field appearance="fill" class="form-group">
+    <mat-label>Name</mat-label>
+    <input matInput id="name" formControlName="name" />
+    <mat-error *ngIf="restaurantForm.get('name')?.invalid && restaurantForm.get('name')?.touched">
       <div *ngIf="restaurantForm.get('name')?.hasError('required')">
         Name is required.
       </div>
       <div *ngIf="restaurantForm.get('name')?.hasError('pattern')">
         Name should not contain special characters.
       </div>
-    </div>
-  </div>
+    </mat-error>
+  </mat-form-field>
 
   <!-- Description Field -->
-  <div class="form-group">
-    <label for="description">Description:</label>
-    <input id="description" formControlName="description" class="form-control" />
-    <div *ngIf="restaurantForm.get('description')?.invalid && restaurantForm.get('description')?.touched" class="error-message">
+  <mat-form-field appearance="fill" class="form-group">
+    <mat-label>Description</mat-label>
+    <input matInput id="description" formControlName="description" />
+    <mat-error *ngIf="restaurantForm.get('description')?.invalid && restaurantForm.get('description')?.touched">
       <div *ngIf="restaurantForm.get('description')?.hasError('required')">
         Description is required.
       </div>
-    </div>
-  </div>
-
-  <!-- Hidden ID Field -->
-  <input type="hidden" formControlName="id">
+    </mat-error>
+  </mat-form-field>
 
   <!-- Submit Button -->
-  <button type="submit" [disabled]="restaurantForm.invalid" class="btn btn-primary">Save</button>
-
-  <!-- Cancel Button -->
-  <button type="button" (click)="router.navigate(['/list'])" class="btn btn-secondary">Cancel</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="restaurantForm.invalid">Save</button>
+  <button mat-button color="warn" type="button" (click)="router.navigate(['/list'])">Cancel</button>
 </form>

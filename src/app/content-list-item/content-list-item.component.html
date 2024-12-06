@@ -1,8 +1,10 @@
-<div>
-  <h2>{{ restaurants.id }}</h2>
-  <p>{{ restaurants.type }}</p>
-  <p>Date of launch{{restaurants.yearReleased}}</p>
-  <p> {{restaurants.Company}}</p>
-  <img [src]="restaurants.imageURL">
-  <button mat-button color="primary">Get restaurant</button>
-</div>
+<mat-card class="mat-elevation-z3 app-content-list-item">
+  <mat-card-header>
+    <mat-card-title>{{ restaurants.type }}</mat-card-title>
+    <mat-card-subtitle>Company: {{ restaurants.Company }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="restaurants.imageURL" alt="{{ restaurants.type }}">
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Get restaurant</button>
+  </mat-card-actions>
+</mat-card>
